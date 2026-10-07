@@ -1411,7 +1411,7 @@ public class Launcher extends StatefulActivity<LauncherState>
     @Override
     public void dispatchDeviceProfileChanged() {
         super.dispatchDeviceProfileChanged();
-        mOverlayManager.onDeviceProvideChanged();
+        mOverlayManager.onDeviceProfileChanged();
     }
 
     @Override

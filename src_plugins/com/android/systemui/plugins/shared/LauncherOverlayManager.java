@@ -27,7 +27,7 @@ import java.io.PrintWriter;
  */
 public interface LauncherOverlayManager extends Application.ActivityLifecycleCallbacks {
 
-    default void onDeviceProvideChanged() { }
+    default void onDeviceProfileChanged() { }
 
     default void onAttachedToWindow() { }
 

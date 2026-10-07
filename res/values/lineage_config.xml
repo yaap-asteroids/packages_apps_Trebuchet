@@ -20,4 +20,8 @@
 
     <!-- Allow rotation by default -->
     <bool name="config_allowRotation">false</bool>
+
+    <!-- Package providing the -1 screen through the launcher overlay service. Empty disables
+         the -1 screen. -->
+    <string name="config_feedOverlayPackage" translatable="false">dev.danascape.launcher3feed.helloworld</string>
 </resources>

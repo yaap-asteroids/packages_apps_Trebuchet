@@ -239,8 +239,9 @@ public class QuickstepTransitionManager implements OnDeviceProfileChangeListener
     private static final float WIDGET_CLOSE_ALPHA_END_PROGRESS = 0.40f;
     private static final float WIDGET_CLOSE_ALPHA_END_PROGRESS_LEGACY = 0.85f;
 
-    private static final float MAX_SCRIM_ALPHA_DARK = 0.8f;
-    private static final float MAX_SCRIM_ALPHA_LIGHT = 0.2f;
+    // A light dim under a gentle blur, so the launch reads as depth rather than a blackout.
+    private static final float MAX_SCRIM_ALPHA_DARK = 0.35f;
+    private static final float MAX_SCRIM_ALPHA_LIGHT = 0.15f;
 
     private final RunnableList mCleanupTask = new RunnableList();
     protected final QuickstepLauncher mLauncher;
@@ -366,10 +367,11 @@ public class QuickstepTransitionManager implements OnDeviceProfileChangeListener
                 launcher, R.interpolator.emphasized_interpolator);
         mLatencyTracker = LatencyTracker.getInstance(launcher);
 
-        mMaxBlurRadius = res.getDimensionPixelSize(
-                R.dimen.max_depth_blur_radius_enhanced);
+        mMaxBlurRadius = res.getDimensionPixelSize(R.dimen.app_launch_blur_radius);
+        // ro.launcher.blur.appLaunch is how builds, like YAAP, turn the launch blur off.
         mIsAppLaunchBlurEnabled = appLaunchBlur() && res.getBoolean(
-                com.android.internal.R.bool.config_enableAppLaunchBlur);
+                com.android.internal.R.bool.config_enableAppLaunchBlur)
+                && SystemProperties.getBoolean("ro.launcher.blur.appLaunch", true);
     }
 
     @Override

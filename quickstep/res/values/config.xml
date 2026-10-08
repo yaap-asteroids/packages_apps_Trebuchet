@@ -31,6 +31,8 @@
     <string name="wellbeing_provider_pkg" translatable="false"/>
 
     <dimen name="max_depth_blur_radius_enhanced">30dp</dimen>
+    <!-- Blur behind an app as it launches; gentler than the depth blur. -->
+    <dimen name="app_launch_blur_radius">12dp</dimen>
 
     <!-- Accessibility actions -->
     <item type="id" name="action_move_to_top_or_left" />

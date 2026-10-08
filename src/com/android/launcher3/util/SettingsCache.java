@@ -36,7 +36,6 @@ import com.android.launcher3.dagger.ApplicationContext;
 import com.android.launcher3.dagger.LauncherAppSingleton;
 import com.android.launcher3.dagger.LauncherBaseAppComponent;
 
-import lineageos.providers.LineageSettings;
 
 import java.util.Map;
 import java.util.Set;
@@ -84,9 +83,6 @@ public class SettingsCache extends ContentObserver {
 
     private static final String SYSTEM_URI_PREFIX = Settings.System.CONTENT_URI.toString();
     private static final String GLOBAL_URI_PREFIX = Settings.Global.CONTENT_URI.toString();
-
-    private static final String LINEAGE_SYSTEM_URI_PREFIX =
-            LineageSettings.System.CONTENT_URI.toString();
 
     private final Function<Uri, MutableListenableRef<Boolean>> mListenerMapper = uri -> {
         registerUriAsync(uri);
@@ -176,8 +172,6 @@ public class SettingsCache extends ContentObserver {
             newVal = Settings.System.getInt(mResolver, key, defaultValue) == 1;
         } else if (keyUri.toString().startsWith(GLOBAL_URI_PREFIX)) {
             newVal = Settings.Global.getInt(mResolver, key, defaultValue) == 1;
-        } else if (keyUri.toString().startsWith(LINEAGE_SYSTEM_URI_PREFIX)) {
-            newVal = LineageSettings.System.getInt(mResolver, key, defaultValue) == 1;
         } else { // SETTING_SECURE
             newVal = Settings.Secure.getInt(mResolver, key, defaultValue) == 1;
         }

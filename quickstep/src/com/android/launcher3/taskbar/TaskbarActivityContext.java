@@ -211,7 +211,6 @@ import com.android.wm.shell.shared.desktopmode.DesktopModeTransitionSource;
 import com.android.wm.shell.shared.desktopmode.DesktopState;
 import com.android.wm.shell.shared.desktopmode.DesktopTaskToFrontReason;
 
-import lineageos.providers.LineageSettings;
 
 import java.io.PrintWriter;
 import java.util.Collections;
@@ -235,10 +234,8 @@ public class TaskbarActivityContext extends BaseTaskbarContext {
 
     private static final Uri URI_USER_SETUP_COMPLETE = Secure.getUriFor(Secure.USER_SETUP_COMPLETE);
     private static final Uri URI_NAV_BAR_KIDS_MODE = Secure.getUriFor(Secure.NAV_BAR_KIDS_MODE);
-    private static final Uri URI_ENABLE_TASKBAR = LineageSettings.System.getUriFor(
-            LineageSettings.System.ENABLE_TASKBAR);
-    private static final Uri URI_NAVIGATION_BAR_HINT = LineageSettings.System.getUriFor(
-            LineageSettings.System.NAVIGATION_BAR_HINT);
+    private static final Uri URI_ENABLE_TASKBAR = TaskbarManagerImpl.ENABLE_TASKBAR_URI;
+    private static final Uri URI_NAVIGATION_BAR_HINT = TaskbarManagerImpl.NAVIGATION_BAR_HINT_URI;
 
     private static final String TAG = "TaskbarActivityContext";
 

@@ -111,7 +111,6 @@ import com.android.wm.shell.shared.desktopmode.DesktopState;
 
 import kotlin.Unit;
 
-import lineageos.providers.LineageSettings;
 
 import kotlinx.coroutines.CoroutineDispatcher;
 
@@ -140,11 +139,15 @@ public class TaskbarManagerImpl {
     private static final Uri NAV_BAR_KIDS_MODE = Settings.Secure.getUriFor(
             Settings.Secure.NAV_BAR_KIDS_MODE);
 
-    public static final Uri ENABLE_TASKBAR_URI = LineageSettings.System.getUriFor(
-            LineageSettings.System.ENABLE_TASKBAR);
+    /** Settings.System toggles for the taskbar and the gesture navigation hint. */
+    public static final String ENABLE_TASKBAR = "enable_taskbar";
+    public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
 
-    public static final Uri NAVIGATION_BAR_HINT_URI = LineageSettings.System.getUriFor(
-            LineageSettings.System.NAVIGATION_BAR_HINT);
+    public static final Uri ENABLE_TASKBAR_URI = Settings.System.getUriFor(
+            ENABLE_TASKBAR);
+
+    public static final Uri NAVIGATION_BAR_HINT_URI = Settings.System.getUriFor(
+            NAVIGATION_BAR_HINT);
 
     private final Context mBaseContext;
     private final int mPrimaryDisplayId;

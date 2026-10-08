@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 The yaap-asteroids Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- App drawer without blur: shade the wallpaper instead of covering it, One UI style. -->
+    <color name="all_apps_shade_dark">#CC0E0E10</color>
+    <color name="all_apps_shade_light">#D9F4F4F6</color>
+</resources>
